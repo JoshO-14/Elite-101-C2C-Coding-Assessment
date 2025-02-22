@@ -1,1 +1,1 @@
-# February-Coding-Challenges
+# C2C Coding Challenge

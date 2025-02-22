@@ -1,0 +1,22 @@
+name_of_ships = [ 
+    "Eclipse",
+    "Celestial Voyager",
+    "Event Horizon",
+    "Nova Strider",
+    "Shadowfang",
+    "Starfire",
+    "Void Serpent",
+    "Nebula Phantom",
+    "Dark Horizon",
+    "Solaris",
+    "Hyperion",
+    "Infinity’s Edge",
+    "Astralis",
+    "Stormbreaker",
+    "Exo Phantom",
+    "Voidrunner",
+    "Starlight",
+    "Nebula Strider",
+    "Dark Voyager",
+    "Nightfall"
+]
