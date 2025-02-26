@@ -21,6 +21,7 @@ def ship_creation():
     for i in range(10): #Essentially, we are going to create a template (dictionary) for 1 ship for all the 20 ships to follow.
     
         ship = {#creating a single dictionary as a template
+            'id': random.randint(1,1000),
             'name': ships_name[i % len(sn.name_of_ships)], #looping through the list of ship names to assign a name to each ship.
             'size': random.choice(sizes),
             'arrival_time': random.choice(arrival_time),
