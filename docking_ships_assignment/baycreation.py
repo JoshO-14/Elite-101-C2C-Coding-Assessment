@@ -7,44 +7,42 @@
 
 docking_bays = [
 {  
-    'bay_id': 1,
+    'bay_name': 'Bay A',
     'bay_size': 'small',
-    'bay_capacity': 3,
-    'bay_dockingtime': '6:00 AM - 9:00 AM'
+    'bay_capacity': 2,
+    'bay_dockingtime': '6:00 AM - 9:00 AM',
+    'bay_ships': []
 },    
 
 {
-    'bay_id': 2,
+    'bay_name': 'Bay B',
     'bay_size': 'small',
-    'bay_capacity': 4,
-    'bay_dockingtime': '10:00 AM - 1:00 PM'
+    'bay_capacity': 2,
+    'bay_dockingtime': '10:00 AM - 1:00 PM',
+    'bay_ships': []
 },
 
 {
-    'bay_id': 3,
+    'bay_name': 'Bay C',
     'bay_size': 'medium',
     'bay_capacity': 5,
-    'bay_dockingtime': '2:00 PM - 5:00PM'
+    'bay_dockingtime': '2:00 PM - 5:00PM',
+    'bay_ships': []
 },
 
 {
-    'bay_id': 4,
+    'bay_name': 'Bay D',
     'bay_size': 'medium',
+    'bay_capacity': 5,
+    'bay_dockingtime': '6:00 PM - 9:00 PM',
+    'bay_ships': []
+},
+
+{
+    'bay_name': 'Bay E',
+    'bay_size': 'large',
     'bay_capacity': 6,
-    'bay_dockingtime': '6:00 PM - 9:00 PM'
-},
-
-{
-    'bay_id': 5,
-    'bay_size': 'large',
-    'bay_capacity': 7,
-    'bay_dockingtime': '10:00 PM - 1:00 AM'
-},
-
-{
-    'bay_id': 6,
-    'bay_size': 'large',
-    'bay_capacity': 8,
-    'bay_dockingtime': '2:00 AM - 5:00 AM'
+    'bay_dockingtime': '10:00 PM - 1:00 AM',
+    'bay_ships': []
 }
 ]
