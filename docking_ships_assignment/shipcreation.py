@@ -11,9 +11,8 @@ random.shuffle(ships_name)
 def ship_creation():
 
     sizes = ['alpha', 'beta', 'gamma', 'delta']
-    arrival_time = ["6:30 AM", "7:00 AM","8:30 AM","10:30 AM","12:30 PM","2:00 PM","3:30 PM","4:00 PM","5:30 PM","6:00 PM"]
-    departure_time = ["7:30 AM", "8:00 AM","8:30 AM","10:30 AM","12:30 PM","2:00 PM","3:30 PM","4:00 PM","5:30 PM","6:00 PM"]
-
+    arrival_time = ["6:00AM", "6:30AM", "7:00AM","8:30AM","10:30AM","12:30PM","2:00PM","3:30PM","4:00PM","5:00PM","6:00PM", "6:30PM", "7:00PM","8:30PM","10:30PM","12:30AM","2:00AM","3:30AM","4:00AM","5:00AM"]
+    departure_time = ["7:30AM", "8:00AM","8:30AM","10:30AM","12:30PM","2:00PM","3:30PM","4:00PM","5:00PM","6:00PM", "6:30PM", "7:00PM","8:30PM","10:30PM","12:30AM","2:00AM","3:30AM","4:00AM","5:00AM","6:00AM"]
     #We created a list of arrival times and sizes for the ships.
     #We will now create a dictionary that contains the name of each ship, the arrival time and the size.
 

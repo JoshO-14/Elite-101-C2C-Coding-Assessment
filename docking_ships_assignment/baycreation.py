@@ -10,7 +10,8 @@ docking_bays = [
     'bay_name': 'Bay A',
     'bay_size': 'small',
     'bay_capacity': 2,
-    'bay_dockingtime': '6:00 AM - 9:00 AM',
+    'bay_shipatime': '6:00AM',
+    'bay_shipdtime':'9:00AM',
     'bay_ships': []
 },    
 
@@ -18,7 +19,8 @@ docking_bays = [
     'bay_name': 'Bay B',
     'bay_size': 'small',
     'bay_capacity': 2,
-    'bay_dockingtime': '10:00 AM - 1:00 PM',
+    'bay_shipatime': '10:00AM', 
+    'bay_shipdtime': '1:00PM',
     'bay_ships': []
 },
 
@@ -26,7 +28,8 @@ docking_bays = [
     'bay_name': 'Bay C',
     'bay_size': 'medium',
     'bay_capacity': 5,
-    'bay_dockingtime': '2:00 PM - 5:00PM',
+    'bay_shipatime': '2:00PM',
+    'bay_shipdtime': '5:00PM',
     'bay_ships': []
 },
 
@@ -34,7 +37,8 @@ docking_bays = [
     'bay_name': 'Bay D',
     'bay_size': 'medium',
     'bay_capacity': 5,
-    'bay_dockingtime': '6:00 PM - 9:00 PM',
+    'bay_shipatime': '6:00PM',
+    'bay_shipdtime': '9:00PM',
     'bay_ships': []
 },
 
@@ -42,7 +46,17 @@ docking_bays = [
     'bay_name': 'Bay E',
     'bay_size': 'large',
     'bay_capacity': 6,
-    'bay_dockingtime': '10:00 PM - 1:00 AM',
+    'bay_shipatime': '10:00PM',
+    'bay_shipdtime': '1:00AM',
+    'bay_ships': []
+},
+
+{
+    'bay_name': 'Bay F',
+    'bay_size': 'large',
+    'bay_capacity': 6,
+    'bay_shipatime': '2:00AM',
+    'bay_shipdtime': '5:00AM',
     'bay_ships': []
 }
 ]
