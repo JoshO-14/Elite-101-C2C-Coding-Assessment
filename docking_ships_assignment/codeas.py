@@ -1,21 +1,23 @@
 import random
-from datetime import datetime
+from datetime import datetime,time
 import shipcreation
 import baycreation
 import departed_ships
 
 #We will be creating a space fleeting docking schedule.
 #The space ships will be docked in the order of their scheduled time and the space ships with the same arrival time will be docked in the order of their size.
-departed_ships = departed_ships.departed_ships
+departed_ships = departed_ships.dp_list()
 ships = shipcreation.ship_creation()
 bc = baycreation
+current_time = '12:00AM'
+current_time = datetime.strptime(current_time, "%I:%M%p")
+departed_ships = departed_ships
+
 """
 We need to incorporate a menu for the user to do the following functions:
 1. Display the ships that are incoming and the docking bays that are available.
 2. Dock the ships in the bays.
-3. Display the ships that are docked in the bays.
-4. Remove the ships from the bays.
-5. Exit the program.
+3. Exit the program.
 """
 print("\nWelcome to the Space Fleet Docking Schedule!")
 
@@ -23,7 +25,8 @@ def menu():
     print("\nSelect an option:")
     print("\n1. Display the ships that are incoming and the docking bays that are available.")
     print("2. Dock the ships in the bays.")
-    print("3.Exit the program.")
+    print("3. Check for departing ships.")
+    print("4.Exit the program.")
     return input("Enter your choice: ")
 
 
@@ -55,24 +58,63 @@ def dock_ships(docking_bay, ships):
         return None
     def find_bay_by_name(bay_name):
         for bay in docking_bay:
-            if bay['bay_name'] == bay_name:
+            if bay['bay_name'].lower() == bay_name:
                 return bay
         return None
-    for ship in ships:
-        if find_ship_by_id(ship_of_choice) == ship:
-            for bay in docking_bay:
-                if find_bay_by_name(dock_of_choice) == bay:
-                    bay['bay_ships'].append(ship)
-                    ships.remove(ship)
-                    print(f"Ship ID - {ship['id']} has been docked in {bay['bay_name']}")
-                    break
-                else:
-                    print("Bay not found. Please try again.")
-                    break
+    
+    def ship_and_bay_time(ship, bay):
+        ship_arrival_time = datetime.strptime(ship['arrival_time'], "%I:%M%p")
+        ship_departure_time = datetime.strptime(ship['departure_time'], "%I:%M%p")
+        bay_arrival_time = datetime.strptime(bay['bay_shipatime'], "%I:%M%p")
+        bay_departure_time = datetime.strptime(bay['bay_shipdtime'], "%I:%M%p")
+        
+        print(f"\nShip arrival time: {ship_arrival_time}")
+        print(f"Ship departure time: {ship_departure_time}")
+        print(f"Bay arrival time: {bay_arrival_time}")
+        print(f"Bay departure time: {bay_departure_time}\n")
+        
+        if bay_arrival_time <= ship_arrival_time:
+            return True
         else:
-            print("Ship ID not found. Please try again.")
-            break
-    return docking_bay
+            return False
+        
+    ship = find_ship_by_id(ship_of_choice)
+    bay = find_bay_by_name(dock_of_choice)
+
+    if ship and bay:
+        if ship_and_bay_time(ship, bay):
+            bay['bay_ships'].append(ship['name'])
+            bay['bay_ships'].append("Arrival time: " + ship['arrival_time'])
+            bay['bay_ships'].append("Departure time: " + ship['departure_time'])
+            ships.remove(ship)
+            print(f"{ship['name']} has been docked successfully!")
+        else:
+            print(f"{ship['name']} cannot be docked at this time.")
+    else:
+        if not ship:
+            print(f"Ship with ID {ship_of_choice} not found.")
+        if not bay:
+            print(f"Bay with name {dock_of_choice} not found.")
+        return bay
+    
+def check_for_departure(docking_bay):
+    print("\nChecking for departing ships...")
+    time.sleep(3)
+    def time_confirmation():
+        for bay in docking_bay:
+            for ship in bay['bay_ships']:
+                if ship['departure_time'] == current_time:
+                    print(f"{ship['name']} has departed.")
+                    bay['bay_ships'].remove(ship)
+                    departed_ships.append(ship)
+                    return True
+                else:
+                    print("No ships are departing at this time.")
+                    return False
+    time_confirmation()
+            
+
+                
 ######
 
 ######
@@ -87,6 +129,8 @@ def main():
         elif choice == '2':
                 dock_ships(docking_bay, ships)
         elif choice == '3':
+            check_for_departure(docking_bay)
+        elif choice == '4':
             print("Goodbye friend!")
             break
         else:
@@ -95,6 +139,4 @@ def main():
 if __name__ == "__main__":
     main()
 
-
-#Now, we need to create a function that incorporates the user input to dock the ships in the bays.
 
