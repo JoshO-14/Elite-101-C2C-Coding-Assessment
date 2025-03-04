@@ -1,5 +1,6 @@
 import random
-from datetime import datetime,time
+from datetime import datetime
+import time
 import shipcreation
 import baycreation
 import departed_ships
@@ -49,6 +50,8 @@ def dock_ships(docking_bay, ships):
         print_bays_and_ships(docking_bay, ships)
 
     ship_of_choice = int(input("Enter the ID of the ship you want to dock: \n"))
+`    if ship_of_choice =! str:
+        print("Invalid Ship ID")`
     dock_of_choice = input("Enter the name of the bay you want to dock the ship in: \n").lower()
 
     def find_ship_by_id(ship_id):
@@ -107,10 +110,10 @@ def check_for_departure(docking_bay):
                     print(f"{ship['name']} has departed.")
                     bay['bay_ships'].remove(ship)
                     departed_ships.append(ship)
-                    return True
+                    break
                 else:
-                    print("No ships are departing at this time.")
-                    return False
+                   print("No ships are departing at this time.")
+        
     time_confirmation()
             
 
