@@ -49,9 +49,11 @@ def dock_ships(docking_bay, ships):
     if decision_to_display.lower() == 'y':
         print_bays_and_ships(docking_bay, ships)
 
-    ship_of_choice = int(input("Enter the ID of the ship you want to dock: \n"))
-`    if ship_of_choice =! str:
-        print("Invalid Ship ID")`
+    try:
+        ship_of_choice = int(input("Enter the ID of the ship you want to dock: \n"))
+    except ValueError:
+        print("Invalid input. Please enter a valid ship ID.")
+        return
     dock_of_choice = input("Enter the name of the bay you want to dock the ship in: \n").lower()
 
     def find_ship_by_id(ship_id):
